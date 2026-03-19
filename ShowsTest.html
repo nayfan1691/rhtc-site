@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RHTC - Forthcoming Shows</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --midnight-navy: #191049;
+  --light-blue: #e6e8f5;
+  --white: #ffffff;
+  --accent-pink: #ff3366;
+}
+
+body, html { margin:0; padding:0; font-family: Arial, sans-serif; background-color: var(--light-blue); color: #333; overflow-x: hidden; }
+a { color: inherit; text-decoration:none; }
+
+/* HEADER & NAV */
+header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: var(--midnight-navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  z-index: 999;
+  box-sizing: border-box;
+  color: white;
+}
+
+body { padding-top: 80px; }
+
+#logo-container { display: flex; align-items: center; gap: 10px; }
+#logo { height: 45px; }
+#logo-text h1 { font-size: 18px; margin: 0; white-space: nowrap; color: white; }
+#logo-text p { font-size: 11px; margin: 2px 0 0; color: #cccccc; }
+
+#burger {
+  background: none; border: none; cursor: pointer;
+  display: flex; flex-direction: column; gap: 4px; padding: 5px;
+}
+#burger span { display: block; height: 3px; width: 22px; background: white; border-radius: 2px; }
+
+nav {
+  position: absolute; top: 100%; left: 0; width: 100%;
+  background: var(--midnight-navy); display: none; flex-direction: column;
+}
+nav.active { display: flex; }
+nav a { padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 14px; color: white; }
+
+/* MAIN CONTENT */
+main {
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+h1.page-title { color: var(--midnight-navy); text-align: center; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
+
+.show-card {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  margin-bottom: 50px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 800px) {
+  .show-card { flex-direction: row; align-items: stretch; }
+  .show-poster { width: 300px; flex-shrink: 0; }
+  .show-info { padding: 40px; }
+}
+
+.show-poster { overflow: hidden; }
+.show-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.show-info { padding: 25px; display: flex; flex-direction: column; justify-content: center; }
+.show-meta { font-size: 0.85em; color: var(--midnight-navy); font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+.show-title { font-size: 2.2em; margin: 0 0 10px; color: var(--midnight-navy); line-height: 1.1; }
+
+.show-dates { 
+  font-weight: bold; 
+  margin-bottom: 20px; 
+  color: #444; 
+  font-size: 1.1em; 
+  border-left: 4px solid var(--midnight-navy); 
+  padding-left: 12px;
+  line-height: 1.5;
+}
+
+.show-description { line-height: 1.6; color: #444; margin-bottom: 30px; }
+
+.btn-tickets {
+  align-self: flex-start;
+  background: var(--accent-pink);
+  color: white !important;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 51, 102, 0.2);
+}
+.btn-tickets:hover { 
+  background: var(--midnight-navy);
+  transform: translateY(-3px); 
+  box-shadow: 0 6px 15px rgba(25, 16, 73, 0.3); 
+}
+
+.archive-footer { text-align: center; padding: 40px 0; }
+.archive-footer a { color: var(--midnight-navy); font-weight: bold; text-decoration: underline; }
+
+/* CAROUSEL */
+.carousel-container {
+  padding: 20px 0 40px;
+  overflow-x: auto;
+  white-space: nowrap;
+  cursor: grab;
+  scrollbar-width: none;
+}
+.carousel-container::-webkit-scrollbar { display: none; }
+.rs-carousel-runner { display: inline-flex; gap: 15px; list-style: none; padding: 0 20px; margin: 0; }
+.rs-carousel-runner img { height: 280px; width: auto; border-radius: 6px; display: block; }
+
+/* FOOTER & SOCIALS (From Base Code) */
+footer { background: var(--midnight-navy); padding: 40px 20px; text-align: center; color: white; }
+.social-icons { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
+.social-icons img { width: 32px; height: 32px; }
+.rhtc-info { font-size: 13px; line-height: 1.6; color: #eee; }
+</style>
+</head>
+<body>
+
+<header>
+  <div id="logo-container">
+    <img id="logo" src="https://rhtc.co.uk/images/rhtc-logo-2020-250px.jpg" alt="RHTC Logo">
+    <div id="logo-text">
+      <h1>Robin Hood Theatre Company</h1>
+      <p>Intimate Theatre in heart of the countryside</p>
+    </div>
+  </div>
+  <button id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav id="menu">
+    <a href="https://rhtc.co.uk/index.shtml">Home</a>
+    <a href="https://rhtc.co.uk/news.shtml">News</a>
+    <a href="https://rhtc.co.uk/shows.shtml">Shows</a>
+    <a href="https://rhtc.co.uk/tickets.shtml">Tickets</a>
+    <a href="https://rhtc.co.uk/hire.shtml">Hire</a>
+    <a href="https://rhtc.co.uk/contact.shtml">Contact</a>
+    <a href="https://rhtc.co.uk/members.shtml">Members</a>
+    <a href="https://rhtc.co.uk/history.shtml">History</a>
+    <a href="https://rhtc.co.uk/donate.shtml">Donate</a>
+    <a href="https://rhtc.co.uk/support.shtml">Support</a>
+  </nav>
+</header>
+
+<main>
+  <h1 class="page-title">Forthcoming Productions 2026</h1>
+
+  <article class="show-card">
+    <div class="show-poster">
+      <img src="https://rhtc.co.uk/images/Goodnight%20Mr%20Mister%20Tom%20Poster%20250px.jpg" alt="Goodnight Mister Tom">
+    </div>
+    <div class="show-info">
+      <div class="show-meta">Argent Theatre Presents</div>
+      <h2 class="show-title">Goodnight Mister Tom</h2>
+      <div class="show-dates">
+        11 - 13 March | 7.30pm<br>
+        14 March Matinee | 2.30pm
+      </div>
+      <p class="show-description">A remarkable and moving tale of two broken souls at different ends of the age scale. Set against the backdrop of WWII, this story celebrates the value of love and friendship.</p>
+      <a href="http://www.ticketsource.co.uk/robinhood" target="_blank" class="btn-tickets">Book Tickets</a>
+    </div>
+  </article>
+
+  <article class="show-card">
+    <div class="show-poster">
+      <img src="https://rhtc.co.uk/images/RHTC%20A3%20Poster%20-%20Uncle%20Vanya%202026%20250px.jpg" alt="Uncle Vanya">
+    </div>
+    <div class="show-info">
+      <div class="show-meta">Robin Hood Theatre Company</div>
+      <h2 class="show-title">Uncle Vanya</h2>
+      <div class="show-dates">
+        21 - 25 April | 7.30pm<br>
+        Sat Matinee | 2.30pm
+      </div>
+      <p class="show-description">Anton Chekhov's masterpiece adapted by Andrew Bacon. A disruption of quiet lives in rural Russia leads to an explosion of comedy and tragedy.</p>
+      <a href="http://www.ticketsource.co.uk/robinhood" target="_blank" class="btn-tickets">Book Tickets</a>
+    </div>
+  </article>
+
+  <article class="show-card">
+    <div class="show-poster">
+      <img src="https://rhtc.co.uk/images/RHTC%20A3%20Poster%20-%20Quiz%202026%20250px.jpg" alt="Quiz">
+    </div>
+    <div class="show-info">
+      <div class="show-meta">Robin Hood Theatre Company</div>
+      <h2 class="show-title">Quiz</h2>
+      <div class="show-dates">
+        16 - 20 June | 7.30pm<br>
+        Sat Matinee | 2.30pm
+      </div>
+      <p class="show-description">The "coughing scandal" that gripped a nation. A witty exploration of truth, deception, and the blurred line between justice and entertainment.</p>
+      <a href="http://www.ticketsource.co.uk/robinhood" target="_blank" class="btn-tickets">Book Tickets</a>
+    </div>
+  </article>
+
+  <article class="show-card">
+    <div class="show-poster">
+      <img src="https://rhtc.co.uk/images/RHTC%20A3%20Poster%20-%20The%20Thrill%20of%20Love%202026%20250px.jpg" alt="The Thrill of Love">
+    </div>
+    <div class="show-info">
+      <div class="show-meta">Robin Hood Theatre Company</div>
+      <h2 class="show-title">The Thrill of Love</h2>
+      <div class="show-dates">
+        22 - 26 September | 7.30pm<br>
+        Sat Matinee | 2.30pm
+      </div>
+      <p class="show-description">The haunting true story of Ruth Ellis, the last woman to be hanged in Britain. A stylish tribute set in the smoky world of 1950s London nightclubs.</p>
+      <a href="http://www.ticketsource.co.uk/robinhood" target="_blank" class="btn-tickets">Book Tickets</a>
+    </div>
+  </article>
+
+  <div class="archive-footer">
+    <a href="https://rhtc.co.uk/past_productions.shtml">Explore our Past Production Archive</a>
+  </div>
+</main>
+
+<div class="carousel-container" id="carousel">
+  <ul class="rs-carousel-runner">
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl1.jpg" alt="Show 1"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl2.jpg" alt="Show 2"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl3.jpg" alt="Show 3"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl4.jpg" alt="Show 4"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl5.jpg" alt="Show 5"></li>
+  </ul>
+</div>
+
+<footer>
+  <div class="social-icons">
+    <a href="https://facebook.com/robinhoodtheatrecompany"><img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="FB"></a>
+    <a href="https://instagram.com/robinhoodtheatrecompany"><img src="https://cdn-icons-png.flaticon.com/24/733/733558.png" alt="IG"></a>
+    <a href="https://www.tiktok.com/@robinhoodtheatre"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046129.png" alt="TikTok"></a>
+    <a href="https://www.youtube.com/@robinhoodtheatrecompany3569"><img src="https://cdn-icons-png.flaticon.com/24/1384/1384060.png" alt="YouTube"></a>
+    <a href="https://x.com/rhtco"><img src="https://cdn-icons-png.flaticon.com/24/5969/5969020.png" alt="X"></a>
+  </div>
+  <div class="rhtc-info">
+    Robin Hood Theatre Company Limited - Charity 1141240<br>
+    &copy; RHTC 2026
+  </div>
+</footer>
+
+<script>
+// Menu Toggle
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.onclick = () => menu.classList.toggle('active');
+
+// Carousel Logic
+const slider = document.getElementById('carousel');
+let isDown = false;
+let startX, scrollLeft, autoPlay;
+
+const startRolling = () => {
+  autoPlay = setInterval(() => {
+    slider.scrollLeft += 1;
+    if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 1)) {
+      slider.scrollLeft = 0;
+    }
+  }, 25);
+};
+
+const stopRolling = () => clearInterval(autoPlay);
+
+slider.onmousedown = (e) => {
+  isDown = true;
+  stopRolling();
+  slider.style.cursor = 'grabbing';
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+};
+
+slider.onmouseleave = () => { isDown = false; startRolling(); };
+slider.onmouseup = () => { isDown = false; startRolling(); };
+
+slider.onmousemove = (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2;
+  slider.scrollLeft = scrollLeft - walk;
+};
+
+startRolling();
+</script>
+
+</body>
+</html>

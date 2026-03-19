@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Robin Hood Theatre Company</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --midnight-navy: #191049;
+  --light-blue: #e6e8f5;
+  --white: #ffffff;
+}
+
+body, html { margin:0; padding:0; font-family: Arial, sans-serif; background-color: var(--light-blue); color: var(--white); overflow-x: hidden; }
+a { color: var(--white); text-decoration:none; }
+
+header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: var(--midnight-navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+body { padding-top: 60px; }
+
+#logo-container { display: flex; align-items: center; gap: 10px; }
+#logo { height: 40px; }
+#logo-text h1 { font-size: 18px; margin: 0; white-space: nowrap; }
+#logo-text p { font-size: 12px; margin: 2px 0 0; color: #cccccc; white-space: nowrap; }
+
+#burger {
+  background: none; border: none; cursor: pointer;
+  display: flex; flex-direction: column; gap: 4px; padding: 5px;
+}
+#burger span { display: block; height: 3px; width: 22px; background: white; border-radius: 2px; }
+
+nav {
+  position: absolute; top: 100%; left: 0; width: 100%;
+  background: var(--midnight-navy); display: none; flex-direction: column;
+}
+nav.active { display: flex; }
+nav a { padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 14px; }
+
+/*/* Hero zoom & fade overlay */
+.hero {
+  position: relative;
+  background: url('https://rhtc.co.uk/images/RHTC%20A3%20Poster%20-%20Uncle%20Vanya%202026%20460px.jpg') center/150% no-repeat;
+  height: 220px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.15);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hero overlay */
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(25,16,73,0.7);
+  padding: 10px;
+  margin: 10px;
+  width: 80px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-overlay h1 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.hero-overlay p {
+  margin: 5px 0 0;
+  font-size: 8px;
+}
+
+/* Show Cards - All 4 shows now restored */
+.show-cards {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 20px; 
+  padding: 40px 15px;
+}
+.card {
+  background: white; color: var(--midnight-navy);
+  width: 220px; border-radius: 8px; overflow: hidden; text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.card img { 
+  width: 100%; 
+  height: 310px; /* Standard height for all posters */
+  object-fit: cover; /* Keeps Quiz and others perfectly scaled */
+}
+.card h2 { font-size: 17px; margin: 12px 0 4px; }
+.card p { font-size: 13px; margin-bottom: 15px; padding: 0 5px; }
+
+/* Show Card Buttons */
+.btn-book {
+  display: inline-block;
+  background-color: #ff3366; /* Vibrant Pink */
+  color: #ffffff !important;
+  padding: 10px 24px;
+  margin: 10px 0 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-book:hover {
+  background-color: #e62e5c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Carousel - Full images */
+.carousel-container {
+  padding: 20px 0 40px;
+  overflow-x: auto;
+  white-space: nowrap;
+  cursor: grab;
+  scrollbar-width: none;
+}
+.carousel-container::-webkit-scrollbar { display: none; }
+
+.rs-carousel-runner {
+  display: inline-flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0 20px;
+  margin: 0;
+}
+.rs-carousel-runner img {
+  height: 280px; /* Full image height preserved */
+  width: auto;   /* Original aspect ratio */
+  border-radius: 6px;
+  display: block;
+}
+
+/* Footer */
+footer { background: var(--midnight-navy); padding: 40px 20px; text-align: center; }
+
+.social-icons { 
+  display: flex; 
+  justify-content: center; 
+  gap: 12px; 
+  margin-bottom: 20px; 
+}
+.social-icons img { width: 32px; height: 32px; }
+
+.rhtc-info { font-size: 13px; line-height: 1.6; color: #eee; }
+</style>
+</head>
+<body>
+
+<header>
+  <div id="logo-container">
+    <img id="logo" src="https://rhtc.co.uk/images/rhtc-logo-2020-250px.jpg" alt="RHTC">
+    <div id="logo-text">
+      <h1>Robin Hood Theatre Company</h1>
+      <p>Intimate Theatre in heart of the countryside</p>
+    </div>
+  </div>
+  <button id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav id="menu">
+  <a href="https://rhtc.co.uk/index.shtml">Home</a>
+  <a href="https://rhtc.co.uk/news.shtml">News</a>
+  <a href="https://rhtc.co.uk/shows.shtml">Shows</a>
+  <a href="https://rhtc.co.uk/tickets.shtml">Tickets</a>
+  <a href="https://rhtc.co.uk/hire.shtml">Hire</a>
+  <a href="https://rhtc.co.uk/contact.shtml">Contact</a>
+  <a href="https://rhtc.co.uk/members.shtml">Members</a>
+  <a href="https://rhtc.co.uk/history.shtml">History</a>
+  <a href="https://rhtc.co.uk/donate.shtml">Donate</a>
+  <a href="https://rhtc.co.uk/support.shtml">Support</a>
+</nav>
+
+</header>
+
+<section class="hero">
+  <div class="hero-overlay">
+    <h1>Uncle Vanya</h1>
+    <p>21 Apr ‐ 25 Apr | 7:30pm</p>
+  </div>
+</section>
+
+<section class="show-cards">
+  <div class="card">
+    <img src="https://rhtc.co.uk/images/RHTC%20A3%20Poster%20-%20Uncle%20Vanya%202026%20460px.jpg" alt="Uncle Vanya">
+    <h2>Uncle Vanya</h2>
+    <p>21 Apr ‐ 25 Apr | 7:30pm</p>
+    <a href="https://www.ticketsource.co.uk/robinhood/uncle-vanya-by-anton-chekhov-adapted-by-andrew-bacon/e-vxaoxe" class="btn-book">Book Now</a>
+  </div>
+  
+  <div class="card">
+    <img src="https://rhtc.co.uk/images/RHTC%20A3%20Poster%20-%20Quiz%202026%20250px.jpg" alt="Quiz">
+    <h2>Quiz</h2>
+    <p>16 Jun ‐ 20 Jun | 7:30pm</p>
+    <a href="https://www.ticketsource.co.uk/robinhood/quiz-by-james-graham/e-ddbrdb" class="btn-book">Book Now</a>
+  </div>
+
+  <div class="card">
+    <img src="https://rhtc.co.uk/images/RHTC%20A3%20Poster%20-%20The%20Thrill%20of%20Love%202026%20460px.jpg" alt="The Thrill of Love">
+    <h2>The Thrill of Love</h2>
+    <p>22 Sep ‐ 26 Sep | 7:30pm</p>
+    <a href="https://www.ticketsource.co.uk/robinhood/the-thrill-of-love-by-amanda-whittington/e-gyeoyg" class="btn-book">Book Now</a>
+  </div>
+
+  <div class="card">
+    <img src="https://cdn.ticketsource.com/images/promoter/banner/00554-17706627126684-m.png" alt="Dear Evan Hansen">
+    <h2>Dear Evan Hansen</h2>
+    <p>14 Oct ‐ 17 Oct | 7:30pm</p>
+    <a href="https://www.ticketsource.co.uk/robinhood/dear-evan-hansen-a-newark-amateur-operatic-society-production/e-lomlvd" class="btn-book">Book Now</a>
+  </div>
+</section>
+
+<div class="carousel-container" id="carousel">
+  <ul class="rs-carousel-runner">
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl1.jpg" alt="Show 1"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl2.jpg" alt="Show 2"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl3.jpg" alt="Show 3"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl4.jpg" alt="Show 4"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl5.jpg" alt="Show 5"></li>
+  </ul>
+</div>
+
+<footer>
+  <div class="social-icons">
+    <a href="https://facebook.com/robinhoodtheatrecompany"><img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="FB"></a>
+    <a href="https://instagram.com/robinhoodtheatrecompany"><img src="https://cdn-icons-png.flaticon.com/24/733/733558.png" alt="IG"></a>
+    <a href="https://www.tiktok.com/@robinhoodtheatre">
+  <img src="https://cdn-icons-png.flaticon.com/24/3046/3046129.png" alt="TikTok" style="width:32px; height:32px; margin:0 5px;">
+</a>
+    <a href="https://www.youtube.com/@robinhoodtheatrecompany3569">
+  <img src="https://cdn-icons-png.flaticon.com/24/1384/1384060.png" alt="YouTube" style="width:32px; height:32px; margin:0 5px;">
+</a>
+    <a href="https://x.com/rhtco">
+  <img src="https://cdn-icons-png.flaticon.com/24/5969/5969020.png" alt="X" style="width:32px; height:32px; margin:0 5px;">
+</a>
+  </div>
+  <div class="rhtc-info">
+    Robin Hood Theatre Company Limited - Charity 1141240<br>
+    &copy; RHTC 2026
+  </div>
+</footer>
+
+<script>
+// Menu
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.onclick = () => menu.classList.toggle('active');
+
+// Carousel: Auto-Rotate + Drag
+const slider = document.getElementById('carousel');
+let isDown = false;
+let startX, scrollLeft;
+let autoPlay;
+
+const startRolling = () => {
+  autoPlay = setInterval(() => {
+    slider.scrollLeft += 1;
+    if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 1)) {
+      slider.scrollLeft = 0;
+    }
+  }, 25);
+};
+
+const stopRolling = () => clearInterval(autoPlay);
+
+slider.onmousedown = (e) => {
+  isDown = true;
+  stopRolling();
+  slider.style.cursor = 'grabbing';
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+};
+
+slider.onmouseleave = () => { isDown = false; startRolling(); };
+slider.onmouseup = () => { isDown = false; startRolling(); };
+
+slider.onmousemove = (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2;
+  slider.scrollLeft = scrollLeft - walk;
+};
+
+startRolling();
+</script>
+</body>
+</html>

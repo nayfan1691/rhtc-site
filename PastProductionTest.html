@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Production History | Robin Hood Theatre Company</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --midnight-navy: #191049;
+  --light-blue: #e6e8f5;
+  --white: #ffffff;
+}
+
+body, html { margin:0; padding:0; font-family: Arial, sans-serif; background-color: var(--light-blue); color: var(--white); overflow-x: hidden; }
+a { color: var(--white); text-decoration:none; }
+
+/* HEADER & NAV */
+header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: var(--midnight-navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+body { padding-top: 60px; }
+
+#logo-container { display: flex; align-items: center; gap: 10px; }
+#logo { height: 40px; }
+#logo-text h1 { font-size: 18px; margin: 0; white-space: nowrap; }
+#logo-text p { font-size: 12px; margin: 2px 0 0; color: #cccccc; white-space: nowrap; }
+
+#burger {
+  background: none; border: none; cursor: pointer;
+  display: flex; flex-direction: column; gap: 4px; padding: 5px;
+}
+#burger span { display: block; height: 3px; width: 22px; background: white; border-radius: 2px; }
+
+nav {
+  position: absolute; top: 100%; left: 0; width: 100%;
+  background: var(--midnight-navy); display: none; flex-direction: column;
+}
+nav.active { display: flex; }
+nav a { padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 14px; }
+
+/* MAIN CONTENT / HISTORY STYLES */
+main { color: var(--midnight-navy); padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+
+.history-container { margin-top: 20px; }
+
+.notice-box {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-style: italic;
+  text-align: center;
+}
+
+details.year-section {
+  margin-bottom: 12px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+summary.year-heading {
+  background: var(--midnight-navy);
+  color: white;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+summary.year-heading::-webkit-details-marker { display: none; }
+summary.year-heading::after { content: '+'; font-size: 1.4rem; transition: transform 0.3s; }
+details[open] summary.year-heading::after { content: '−'; }
+
+.production-card {
+  padding: 15px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  border-left: 5px solid var(--midnight-navy);
+}
+
+.production-card:last-child { border-bottom: none; }
+.production-title { display: block; font-weight: bold; font-size: 1rem; color: var(--midnight-navy); }
+.production-meta { font-size: 0.85rem; color: #555; margin-top: 4px; line-height: 1.4; }
+.company-tag { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* FOOTER / CAROUSEL */
+.carousel-container { padding: 20px 0 40px; overflow-x: auto; white-space: nowrap; cursor: grab; scrollbar-width: none; }
+.carousel-container::-webkit-scrollbar { display: none; }
+.rs-carousel-runner { display: inline-flex; gap: 15px; list-style: none; padding: 0 20px; margin: 0; }
+.rs-carousel-runner img { height: 280px; width: auto; border-radius: 6px; display: block; }
+footer { background: var(--midnight-navy); padding: 40px 20px; text-align: center; }
+.social-icons { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
+.social-icons img { width: 32px; height: 32px; }
+.rhtc-info { font-size: 13px; line-height: 1.6; color: #eee; }
+</style>
+</head>
+<body>
+
+<header>
+  <div id="logo-container">
+    <img id="logo" src="https://rhtc.co.uk/images/rhtc-logo-2020-250px.jpg" alt="RHTC">
+    <div id="logo-text">
+      <h1>Robin Hood Theatre Company</h1>
+      <p>Intimate Theatre in heart of the countryside</p>
+    </div>
+  </div>
+  <button id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav id="menu">
+    <a href="https://rhtc.co.uk/index.shtml">Home</a>
+    <a href="https://rhtc.co.uk/news.shtml">News</a>
+    <a href="https://rhtc.co.uk/shows.shtml">Shows</a>
+    <a href="https://rhtc.co.uk/tickets.shtml">Tickets</a>
+    <a href="https://rhtc.co.uk/hire.shtml">Hire</a>
+    <a href="https://rhtc.co.uk/contact.shtml">Contact</a>
+    <a href="https://rhtc.co.uk/members.shtml">Members</a>
+    <a href="https://rhtc.co.uk/history.shtml">History</a>
+    <a href="https://rhtc.co.uk/donate.shtml">Donate</a>
+    <a href="https://rhtc.co.uk/support.shtml">Support</a>
+  </nav>
+</header>
+
+<main>
+  <h1 style="text-align: center;">Production History</h1>
+  <p style="text-align: center;">Past production photos can be found on our Facebook page.</p>
+
+  <div class="history-container">
+
+    <details class="year-section" open>
+      <summary class="year-heading">2026</summary>
+      <div class="production-card">
+        <span class="company-tag">Robin Hood Theatre Company</span>
+        <span class="production-title">The Queen and I by Sue Townsend</span>
+        <div class="production-meta">27 to 31 January 2026</div>
+      </div>
+    </details>
+
+    <details class="year-section">
+      <summary class="year-heading">2025</summary>
+      <div class="production-card">
+        <span class="company-tag">Relight Productions Presents</span>
+        <span class="production-title">Dan Hadfield as Gary Barlow: Tribute</span>
+        <div class="production-meta">17 December 2025</div>
+      </div>
+      <div class="production-card">
+        <span class="company-tag">Robin Hood Theatre Company</span>
+        <span class="production-title">It's A Wonderful Life by Mary Elliott Nelson</span>
+        <div class="production-meta">9 to 13 December 2025</div>
+      </div>
+      <div class="production-card">
+        <span class="company-tag">Newark Amateur Operatic Society</span>
+        <span class="production-title">Calendar Girls - The Musical</span>
+        <div class="production-meta">15 to 18 October 2025</div>
+      </div>
+      <div class="production-card">
+        <span class="company-tag">Robin Hood Theatre Company</span>
+        <span class="production-title">Blackadder by Richard Curtis et al.</span>
+        <div class="production-meta">23 to 27 September 2025</div>
+      </div>
+      <div class="production-card">
+        <span class="company-tag">Robin Hood Theatre Company</span>
+        <span class="production-title">The Curious Incident Of The Dog In The Night-Time</span>
+        <div class="production-meta">17 to 21 June 2025</div>
+      </div>
+    </details>
+
+    <details class="year-section">
+      <summary class="year-heading">2024</summary>
+      <div class="production-card">
+        <span class="company-tag">Robin Hood Theatre Company</span>
+        <span class="production-title">Treasure Island by Le Navet Bete & John Nicholson</span>
+        <div class="production-meta">10 to 14 December 2024</div>
+      </div>
+      <div class="production-card">
+        <span class="company-tag">Robin Hood Theatre Company</span>
+        <span class="production-title">Present Laughter by Noel Coward</span>
+        <div class="production-meta">24 to 28 September 2024</div>
+      </div>
+      <div class="production-card">
+        <span class="company-tag">Robin Hood Theatre Company</span>
+        <span class="production-title">The Lady in the Van by Alan Bennett</span>
+        <div class="production-meta">11 to 15 June 2024</div>
+      </div>
+      <div class="production-card">
+        <span class="company-tag">Argent Theatre</span>
+        <span class="production-title">Touched by Stephen Lowe</span>
+        <div class="production-meta">13 to 15 March 2024</div>
+      </div>
+    </details>
+
+    <details class="year-section">
+      <summary class="year-heading">2020 - 2023</summary>
+      <div class="production-card">
+        <span class="company-tag">Robin Hood Theatre Company</span>
+        <span class="production-title">The Flint Street Nativity by Tim Firth</span>
+        <div class="production-meta">Dec 2023</div>
+      </div>
+      <div class="production-card">
+        <span class="company-tag">Robin Hood Theatre Company</span>
+        <span class="production-title">Nell Gwynn by Jessica Swale</span>
+        <div class="production-meta">June 2023</div>
+      </div>
+      <div class="production-card">
+        <span class="company-tag">Robin Hood Theatre Company</span>
+        <span class="production-title">The Addams Family (NAOS)</span>
+        <div class="production-meta">Oct 2022</div>
+      </div>
+      <div class="production-card">
+        <span class="company-tag">Robin Hood Theatre Company</span>
+        <span class="production-title">The Vicar of Dibley</span>
+        <div class="production-meta">Dec 2021</div>
+      </div>
+      <div class="production-card">
+        <span class="company-tag">Robin Hood Theatre Company</span>
+        <span class="production-title">Handbagged by Moira Buffini</span>
+        <div class="production-meta">Jan 2020 | Dir: Jean Lebeter</div>
+      </div>
+    </details>
+
+    <div class="notice-box">Robin Hood Theatre reopened in April 2014 following a temporary closure.</div>
+
+    <details class="year-section">
+      <summary class="year-heading">2007 - 2014 (On Tour)</summary>
+      <div class="production-card"><span class="production-title">'Allo Allo' (Farndon Memorial Hall)</span><div class="production-meta">Jan 2014 | Dir: Jean Lebeter</div></div>
+      <div class="production-card"><span class="production-title">The Graduate (Newark Academy)</span><div class="production-meta">July 2013 | Dir: Clive Harmston</div></div>
+      <div class="production-card"><span class="production-title">The 39 Steps (Grove School)</span><div class="production-meta">Nov 2012 | Dir: David Baliol-Key</div></div>
+      <div class="production-card"><span class="production-title">Blithe Spirit (Collingham Memorial Hall)</span><div class="production-meta">March 2010 | Dir: Jean Lebeter</div></div>
+      <div class="production-card"><span class="production-title">An Inspector Calls (Collingham Memorial Hall)</span><div class="production-meta">May 2008 | Dir: Mary Timms</div></div>
+    </details>
+
+    <details class="year-section">
+      <summary class="year-heading">1990 - 1999</summary>
+      <div class="production-card"><span class="production-title">Cabaret</span><div class="production-meta">Dec 1999 | Dir: David Baliol-Key</div></div>
+      <div class="production-card"><span class="production-title">The Cherry Orchard</span><div class="production-meta">Nov 1998 | Dir: Val Wilson</div></div>
+      <div class="production-card"><span class="production-title">Dancing at Lughnasa</span><div class="production-meta">Nov 1996 | Dir: Gordon Parsons</div></div>
+      <div class="production-card"><span class="production-title">Noises Off</span><div class="production-meta">Jan 1995 | Dir: Paul Cobb</div></div>
+      <div class="production-card"><span class="production-title">Twelfth Night</span><div class="production-meta">Jan 1991 | Dir: Brian Poyser</div></div>
+    </details>
+
+    <details class="year-section">
+      <summary class="year-heading">1961 - 1989</summary>
+      <div class="production-card"><span class="production-title">Tartuffe</span><div class="production-meta">Nov 1989 | Dir: Gordon Parsons</div></div>
+      <div class="production-card"><span class="production-title">The Wizard of Oz</span><div class="production-meta">Dec 1981 | Dir: Carolyn Drury</div></div>
+      <div class="production-card"><span class="production-title">Saturday, Sunday, Monday</span><div class="production-meta">1976</div></div>
+      <div class="production-card"><span class="production-title">A Doll's House</span><div class="production-meta">1969</div></div>
+      <div class="production-card"><span class="production-title">The Eagle Has Two Heads</span><div class="production-meta">Nov 1961</div></div>
+    </details>
+
+  </div>
+</main>
+
+<div class="carousel-container" id="carousel">
+  <ul class="rs-carousel-runner">
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl1.jpg" alt="Show 1"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl2.jpg" alt="Show 2"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl3.jpg" alt="Show 3"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl4.jpg" alt="Show 4"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl5.jpg" alt="Show 5"></li>
+  </ul>
+</div>
+
+<footer>
+  <div class="social-icons">
+    <a href="https://facebook.com/robinhoodtheatrecompany"><img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="FB"></a>
+    <a href="https://instagram.com/robinhoodtheatrecompany"><img src="https://cdn-icons-png.flaticon.com/24/733/733558.png" alt="IG"></a>
+    <a href="https://www.tiktok.com/@robinhoodtheatre"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046129.png" alt="TikTok"></a>
+    <a href="https://www.youtube.com/@robinhoodtheatrecompany3569"><img src="https://cdn-icons-png.flaticon.com/24/1384/1384060.png" alt="YouTube"></a>
+    <a href="https://x.com/rhtco"><img src="https://cdn-icons-png.flaticon.com/24/5969/5969020.png" alt="X"></a>
+  </div>
+  <div class="rhtc-info">
+    Robin Hood Theatre Company Limited - Charity 1141240<br>
+    &copy; RHTC 2026
+  </div>
+</footer>
+
+<script>
+// Menu Toggle
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.onclick = () => menu.classList.toggle('active');
+
+// Carousel Auto-scroll logic remains same as base blank...
+const slider = document.getElementById('carousel');
+let isDown = false;
+let startX, scrollLeft, autoPlay;
+const startRolling = () => {
+  autoPlay = setInterval(() => {
+    slider.scrollLeft += 1;
+    if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 1)) slider.scrollLeft = 0;
+  }, 25);
+};
+const stopRolling = () => clearInterval(autoPlay);
+slider.onmousedown = (e) => { isDown = true; stopRolling(); slider.style.cursor = 'grabbing'; startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; };
+slider.onmouseleave = () => { isDown = false; startRolling(); };
+slider.onmouseup = () => { isDown = false; startRolling(); };
+slider.onmousemove = (e) => { if (!isDown) return; e.preventDefault(); const x = e.pageX - slider.offsetLeft; const walk = (x - startX) * 2; slider.scrollLeft = scrollLeft - walk; };
+startRolling();
+</script>
+
+</body>
+</html>

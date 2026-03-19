@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RHTC - Links</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --midnight-navy: #191049;
+  --light-blue: #e6e8f5;
+  --white: #ffffff;
+}
+
+body, html { margin:0; padding:0; font-family: Arial, sans-serif; background-color: var(--light-blue); color: var(--white); overflow-x: hidden; }
+a { color: var(--white); text-decoration:none; }
+
+/* HEADER & NAV */
+header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: var(--midnight-navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+body { padding-top: 60px; }
+
+#logo-container { display: flex; align-items: center; gap: 10px; }
+#logo { height: 40px; }
+#logo-text h1 { font-size: 18px; margin: 0; white-space: nowrap; }
+#logo-text p { font-size: 12px; margin: 2px 0 0; color: #cccccc; white-space: nowrap; }
+
+#burger {
+  background: none; border: none; cursor: pointer;
+  display: flex; flex-direction: column; gap: 4px; padding: 5px;
+}
+#burger span { display: block; height: 3px; width: 22px; background: white; border-radius: 2px; }
+
+nav {
+  position: absolute; top: 100%; left: 0; width: 100%;
+  background: var(--midnight-navy); display: none; flex-direction: column;
+}
+nav.active { display: flex; }
+nav a { padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 14px; }
+
+/* MAIN CONTENT AREA */
+main {
+  color: var(--midnight-navy);
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.content-card {
+  background: var(--white);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.content-card h2 { margin-top: 0; border-bottom: 2px solid var(--midnight-navy); padding-bottom: 10px; font-size: 20px; margin-bottom: 15px; text-transform: uppercase; }
+.link-list { list-style: none; padding: 0; margin: 0; }
+.link-list li { border-bottom: 1px solid #eee; padding: 12px 0; }
+.link-list li:last-child { border-bottom: none; }
+.link-list a { color: #ff3366; text-decoration: none; font-weight: bold; font-size: 1.1em; display: block; }
+.link-list a:hover { text-decoration: underline; }
+
+/* CAROUSEL */
+.carousel-container {
+  padding: 20px 0 40px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.carousel-container::-webkit-scrollbar { display: none; }
+.rs-carousel-runner { display: inline-flex; gap: 15px; list-style: none; padding: 0 20px; margin: 0; }
+.rs-carousel-runner img { height: 280px; width: auto; border-radius: 6px; }
+
+/* FOOTER */
+footer { background: var(--midnight-navy); padding: 40px 20px; text-align: center; }
+.social-icons { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
+.social-icons img { width: 32px; height: 32px; }
+.rhtc-info { font-size: 13px; line-height: 1.6; color: #eee; }
+</style>
+</head>
+<body>
+
+<header>
+  <div id="logo-container">
+    <img id="logo" src="https://rhtc.co.uk/images/rhtc-logo-2020-250px.jpg" alt="RHTC">
+    <div id="logo-text">
+      <h1>Robin Hood Theatre Company</h1>
+      <p>Intimate Theatre in heart of the countryside</p>
+    </div>
+  </div>
+  <button id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav id="menu">
+    <a href="https://rhtc.co.uk/index.shtml">Home</a>
+    <a href="https://rhtc.co.uk/news.shtml">News</a>
+    <a href="https://rhtc.co.uk/theatre.shtml">Theatre</a>
+    <a href="https://rhtc.co.uk/shows.shtml">Shows</a>
+    <a href="https://rhtc.co.uk/tickets.shtml">Tickets</a>
+    <a href="https://rhtc.co.uk/hire.shtml">Hire</a>
+    <a href="https://rhtc.co.uk/contact.shtml">Contact</a>
+    <a href="https://rhtc.co.uk/members.shtml">Members</a>
+    <a href="https://rhtc.co.uk/history.shtml">History</a>
+    <a href="https://rhtc.co.uk/donate.shtml">Donate</a>
+    <a href="https://rhtc.co.uk/support.shtml">Support</a>
+  </nav>
+</header>
+
+<main>
+  <h1 style="text-align: center; margin-bottom: 30px;">Useful Links</h1>
+  
+  <div class="content-card">
+    <h2>Theatre Associations & Groups</h2>
+    <ul class="link-list">
+      <li><a target="_blank" href="http://nandanotts.co.uk/">Nottingham and Nottinghamshire Drama Association</a></li>
+      <li><a target="_blank" href="http://www.littletheatreguild.org/">The Little Theatre Guild of Great Britain</a></li>
+      <li><a target="_blank" href="http://www.ravensheadtheatregroup.co.uk/">Ravenshead Theatre Group</a></li>
+      <li><a target="_blank" href="http://www.amateurtheatredirectory.co.uk/">Amateur Theatre Directory</a></li>
+      <li><a target="_blank" href="http://www.greasleyplayers.co.uk/">Greasley Players Amateur Theatre Group</a></li>
+      <li><a target="_blank" href="https://www.facebook.com/pages/Argent-Theatre/124296680923799">Argent Theatre Group</a></li>
+      <li><a target="_blank" href="https://www.facebook.com/newarkoperatic">Newark Amateur Operatic Society</a></li>
+    </ul>
+  </div>
+</main>
+
+<div class="carousel-container" id="carousel">
+  <ul class="rs-carousel-runner">
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl1.jpg" alt="Production 1"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl2.jpg" alt="Production 2"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl3.jpg" alt="Production 3"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl4.jpg" alt="Production 4"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl5.jpg" alt="Production 5"></li>
+  </ul>
+</div>
+
+<footer>
+  <div class="social-icons">
+    <a href="https://facebook.com/robinhoodtheatrecompany"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="FB"></a>
+    <a href="https://instagram.com/robinhoodtheatrecompany"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="IG"></a>
+    <a href="https://www.tiktok.com/@robinhoodtheatre"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046129.png" alt="TikTok"></a>
+    <a href="https://www.youtube.com/@robinhoodtheatrecompany3569"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+    <a href="https://x.com/rhtco"><img src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png" alt="X"></a>
+  </div>
+  <div class="rhtc-info">
+    Robin Hood Theatre Company Limited - Charity 1141240<br>
+    &copy; RHTC 2026
+  </div>
+</footer>
+
+<script>
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.onclick = () => menu.classList.toggle('active');
+
+const slider = document.getElementById('carousel');
+let autoPlay;
+const startRolling = () => {
+  autoPlay = setInterval(() => {
+    slider.scrollLeft += 1;
+    if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 1)) {
+      slider.scrollLeft = 0;
+    }
+  }, 25);
+};
+startRolling();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RHTC - History</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --midnight-navy: #191049;
+  --light-blue: #e6e8f5;
+  --white: #ffffff;
+}
+
+body, html { margin:0; padding:0; font-family: Arial, sans-serif; background-color: var(--light-blue); color: var(--midnight-navy); overflow-x: hidden; }
+a { color: var(--midnight-navy); }
+
+/* HEADER & NAV */
+header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: var(--midnight-navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+body { padding-top: 60px; }
+
+#logo-container { display: flex; align-items: center; gap: 10px; }
+#logo { height: 40px; }
+#logo-text h1 { font-size: 18px; margin: 0; white-space: nowrap; color: white; }
+#logo-text p { font-size: 12px; margin: 2px 0 0; color: #cccccc; white-space: nowrap; }
+
+#burger {
+  background: none; border: none; cursor: pointer;
+  display: flex; flex-direction: column; gap: 4px; padding: 5px;
+}
+#burger span { display: block; height: 3px; width: 22px; background: white; border-radius: 2px; }
+
+nav {
+  position: absolute; top: 100%; left: 0; width: 100%;
+  background: var(--midnight-navy); display: none; flex-direction: column;
+}
+nav.active { display: flex; }
+nav a { padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 14px; color: white; text-decoration: none; }
+
+/* HISTORY CONTENT */
+main {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.history-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom: 25px;
+}
+
+.history-card h2 {
+  margin-top: 0;
+  color: var(--midnight-navy);
+  border-bottom: 2px solid var(--midnight-navy);
+  padding-bottom: 10px;
+}
+
+.history-text p {
+  line-height: 1.7;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* Updated Pink Button */
+.btn-book {
+  display: inline-block;
+  background-color: #ff3366;
+  color: #ffffff !important;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-book:hover {
+  background-color: #e62e5c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* CAROUSEL */
+.carousel-container {
+  padding: 20px 0 40px;
+  overflow-x: auto;
+  white-space: nowrap;
+  cursor: grab;
+  scrollbar-width: none;
+}
+.carousel-container::-webkit-scrollbar { display: none; }
+
+.rs-carousel-runner {
+  display: inline-flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0 20px;
+  margin: 0;
+}
+.rs-carousel-runner img {
+  height: 280px;
+  width: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+/* FOOTER */
+footer { background: var(--midnight-navy); padding: 40px 20px; text-align: center; color: white; }
+.social-icons { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
+.social-icons img { width: 32px; height: 32px; }
+.rhtc-info { font-size: 13px; line-height: 1.6; color: #eee; }
+</style>
+</head>
+<body>
+
+<header>
+  <div id="logo-container">
+    <img id="logo" src="https://rhtc.co.uk/images/rhtc-logo-2020-250px.jpg" alt="RHTC">
+    <div id="logo-text">
+      <h1>Robin Hood Theatre Company</h1>
+      <p>Intimate Theatre in heart of the countryside</p>
+    </div>
+  </div>
+  <button id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav id="menu">
+    <a href="https://rhtc.co.uk/index.shtml">Home</a>
+    <a href="https://rhtc.co.uk/news.shtml">News</a>
+    <a href="https://rhtc.co.uk/shows.shtml">Shows</a>
+    <a href="https://rhtc.co.uk/tickets.shtml">Tickets</a>
+    <a href="https://rhtc.co.uk/hire.shtml">Hire</a>
+    <a href="https://rhtc.co.uk/contact.shtml">Contact</a>
+    <a href="https://rhtc.co.uk/members.shtml">Members</a>
+    <a href="https://rhtc.co.uk/history.shtml">History</a>
+    <a href="https://rhtc.co.uk/donate.shtml">Donate</a>
+    <a href="https://rhtc.co.uk/support.shtml">Support</a>
+  </nav>
+</header>
+
+<main>
+  <div class="history-card">
+    <h2>Our History</h2>
+    <div class="history-text">
+      <p>The Robin Hood Theatre lies in the grounds of Averham Rectory, close to Sherwood Forest. It was designed by the Rev. Joseph Cyril Walker in 1913 and built by the village carpenter, Robert Lee, assisted by local voluntary labour.</p>
+      
+      <p>The exterior was simple and functional, but the interior surprised and delighted all who entered it. The ample 3' high stage with a depth of 24' and a width of 16' was framed by an ornate proscenium arch painted in gold leaf, flanked by more beautiful plaster work.</p>
+      
+      <p>The full name chosen for the theatre was the Robin Hood Opera House and these initials were inscribed on the proscenium arch. Two small dressing rooms led off from either side of the stage, above which a fly floor and cat walk were constructed, while behind the stage an ample scene dock could also be used as an extra dressing room for large cast productions.</p>
+      
+      <p>The theatre had a seating capacity of 150. The first five rows were tip-up seats, upholstered in green velvet, 'The Rev. Cyril Walker's stalls', the remainder consisting of Bentwood chairs. A long succession of musical plays and pantomimes were performed, many of them written by the rector himself, followed over the years by thrillers and straight plays.</p>
+    </div>
+  </div>
+
+  <div class="history-card" style="background-color: var(--midnight-navy); color: white; text-align: center;">
+    <h3 style="margin-top: 0;">Did you know?</h3>
+    <p style="font-size: 15px; line-height: 1.6;">
+      The legendary <strong>Sir Donald Wolfit</strong> started his career here as a schoolboy playing the back legs of a donkey! He later became our Patron and helped save the theatre in 1961.
+    </p>
+    <div style="margin-top: 20px;">
+  <a href="https://docs.google.com/viewer?url=https://rhtc.co.uk/documents/RHT%2021%20years.pdf&embedded=true" target="_blank" class="btn-book">
+    View Full History (PDF)
+  </a>
+</div>
+
+  </div>
+</main>
+
+<div class="carousel-container" id="carousel">
+  <ul class="rs-carousel-runner">
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl1.jpg" alt="Show 1"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl2.jpg" alt="Show 2"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl3.jpg" alt="Show 3"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl4.jpg" alt="Show 4"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl5.jpg" alt="Show 5"></li>
+  </ul>
+</div>
+
+<footer>
+  <div class="social-icons">
+    <a href="https://facebook.com/robinhoodtheatrecompany"><img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="FB"></a>
+    <a href="https://instagram.com/robinhoodtheatrecompany"><img src="https://cdn-icons-png.flaticon.com/24/733/733558.png" alt="IG"></a>
+    <a href="https://www.tiktok.com/@robinhoodtheatre"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046129.png" alt="TikTok"></a>
+    <a href="https://www.youtube.com/@robinhoodtheatrecompany3569"><img src="https://cdn-icons-png.flaticon.com/24/1384/1384060.png" alt="YouTube"></a>
+    <a href="https://x.com/rhtco"><img src="https://cdn-icons-png.flaticon.com/24/5969/5969020.png" alt="X"></a>
+  </div>
+  <div class="rhtc-info">
+    Robin Hood Theatre Company Limited - Charity 1141240<br>
+    &copy; RHTC 2026
+  </div>
+</footer>
+
+<script>
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.onclick = () => menu.classList.toggle('active');
+
+const slider = document.getElementById('carousel');
+let isDown = false;
+let startX, scrollLeft, autoPlay;
+
+const startRolling = () => {
+  autoPlay = setInterval(() => {
+    slider.scrollLeft += 1;
+    if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 1)) {
+      slider.scrollLeft = 0;
+    }
+  }, 25);
+};
+const stopRolling = () => clearInterval(autoPlay);
+
+slider.onmousedown = (e) => {
+  isDown = true;
+  stopRolling();
+  slider.style.cursor = 'grabbing';
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+};
+slider.onmouseleave = () => { isDown = false; startRolling(); };
+slider.onmouseup = () => { isDown = false; startRolling(); };
+slider.onmousemove = (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2;
+  slider.scrollLeft = scrollLeft - walk;
+};
+startRolling();
+</script>
+</body>
+</html>

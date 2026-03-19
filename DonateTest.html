@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RHTC - Make a Donation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --midnight-navy: #191049;
+  --light-blue: #e6e8f5;
+  --white: #ffffff;
+}
+
+body, html { margin:0; padding:0; font-family: Arial, sans-serif; background-color: var(--light-blue); color: var(--white); overflow-x: hidden; }
+a { color: var(--white); text-decoration:none; }
+
+/* HEADER & NAV */
+header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: var(--midnight-navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+body { padding-top: 60px; }
+
+#logo-container { display: flex; align-items: center; gap: 10px; }
+#logo { height: 40px; }
+#logo-text h1 { font-size: 18px; margin: 0; white-space: nowrap; }
+#logo-text p { font-size: 12px; margin: 2px 0 0; color: #cccccc; white-space: nowrap; }
+
+#burger {
+  background: none; border: none; cursor: pointer;
+  display: flex; flex-direction: column; gap: 4px; padding: 5px;
+}
+#burger span { display: block; height: 3px; width: 22px; background: white; border-radius: 2px; }
+
+nav {
+  position: absolute; top: 100%; left: 0; width: 100%;
+  background: var(--midnight-navy); display: none; flex-direction: column;
+}
+nav.active { display: flex; }
+nav a { padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 14px; }
+
+/* MAIN CONTENT AREA */
+main {
+  color: var(--midnight-navy);
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.content-card {
+  background: var(--white);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.content-card p { line-height: 1.6; margin-bottom: 15px; }
+.jg-list { padding-left: 20px; margin-bottom: 20px; }
+.jg-list li { margin-bottom: 8px; line-height: 1.4; }
+
+/* HORIZONTAL BUTTONS */
+.jg-button-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+.jg-button-row img { height: 35px; width: auto; }
+
+/* CAROUSEL */
+.carousel-container {
+  padding: 20px 0 40px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.carousel-container::-webkit-scrollbar { display: none; }
+.rs-carousel-runner { display: inline-flex; gap: 15px; list-style: none; padding: 0 20px; margin: 0; }
+.rs-carousel-runner img { height: 280px; width: auto; border-radius: 6px; }
+
+/* FOOTER */
+footer { background: var(--midnight-navy); padding: 40px 20px; text-align: center; }
+.social-icons { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
+.social-icons img { width: 32px; height: 32px; }
+.rhtc-info { font-size: 13px; line-height: 1.6; color: #eee; }
+</style>
+</head>
+<body>
+
+<header>
+  <div id="logo-container">
+    <img id="logo" src="https://rhtc.co.uk/images/rhtc-logo-2020-250px.jpg" alt="RHTC">
+    <div id="logo-text">
+      <h1>Robin Hood Theatre Company</h1>
+      <p>Intimate Theatre in heart of the countryside</p>
+    </div>
+  </div>
+  <button id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav id="menu">
+    <a href="https://rhtc.co.uk/index.shtml">Home</a>
+    <a href="https://rhtc.co.uk/news.shtml">News</a>
+    <a href="https://rhtc.co.uk/shows.shtml">Shows</a>
+    <a href="https://rhtc.co.uk/tickets.shtml">Tickets</a>
+    <a href="https://rhtc.co.uk/hire.shtml">Hire</a>
+    <a href="https://rhtc.co.uk/contact.shtml">Contact</a>
+    <a href="https://rhtc.co.uk/members.shtml">Members</a>
+    <a href="https://rhtc.co.uk/history.shtml">History</a>
+    <a href="https://rhtc.co.uk/donate.shtml">Donate</a>
+    <a href="https://rhtc.co.uk/support.shtml">Support</a>
+  </nav>
+</header>
+
+<main>
+  <h1 style="text-align: center;">Make a donation</h1>
+  
+  <div class="content-card">
+    <p>Robin Hood Theatre Company is looking forward to its next stage of development and continue to restore and rejuvenate our intimate theatre in the heart of the countryside.</p>
+    
+    <p>Situated in the heart of Robin Hood’s county, Nottinghamshire, the theatre has a reputation for staging first class drama, offering premiers of new productions from award winning writers and also nurturing and developing new writing talent. Our aim is to develop the theatre to offer a quality experience for all our visitors and members. We are continuing to restore and develop our building to ensure our theatre’s continued success.</p>
+    
+    <p>By choosing to make a monthly or one off donation you will be making a significant contribution to our theatre.</p>
+  </div>
+
+  <div class="content-card">
+    <img src="https://rhtc.co.uk/images/justgiving%20200px.jpg" alt="JustGiving" style="width: 200px; height: 37px; margin-bottom: 20px;">
+    <p>We recommend JustGiving because</p>
+    <ul class="jg-list">
+      <li>Fundraising online is the best way for us to receive money.</li>
+      <li>Gift Aid is added automatically, which is an extra 25% on top of every eligible donation.</li>
+      <li>It reduced admin costs for us.</li>
+      <li>It's easier for you, there's no need to run around with a sponsorship form, collecting cash and cheques.</li>
+    </ul>
+
+    <div class="jg-button-row">
+      <a target="_blank" href="http://www.justgiving.com/rhtc/donate/?utm_source=website_248095&utm_medium=buttons&utm_content=rhtc&utm_campaign=donate_purple">
+        <img src="https://www.justgiving.com/charities/content/images/logo-buttons/purple/donate_purple.gif" alt="Donate" />
+      </a>
+      <a target="_blank" href="http://www.justgiving.com/rhtc/donate/?utm_source=website_248095&utm_medium=buttons&utm_content=rhtc&utm_campaign=donate_dd_purple">
+        <img src="https://www.justgiving.com/charities/content/images/logo-buttons/purple/donate_dd_purple.gif" alt="Direct Debit" />
+      </a>
+      <a target="_blank" href="http://www.justgiving.com/rhtc/raisemoney/?utm_source=website_248095&utm_medium=buttons&utm_content=rhtc&utm_campaign=makeapage_start_purple">
+        <img src="https://www.justgiving.com/charities/content/images/logo-buttons/purple/makeapage_start_purple.gif" alt="Fundraise" />
+      </a>
+    </div>
+  </div>
+</main>
+
+<div class="carousel-container" id="carousel">
+  <ul class="rs-carousel-runner">
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl1.jpg" alt="Show 1"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl2.jpg" alt="Show 2"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl3.jpg" alt="Show 3"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl4.jpg" alt="Show 4"></li>
+    <li><img src="https://rhtc.co.uk/scroller_front_images/wl5.jpg" alt="Show 5"></li>
+  </ul>
+</div>
+
+<footer>
+  <div class="social-icons">
+    <a href="https://facebook.com/robinhoodtheatrecompany"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="FB"></a>
+    <a href="https://instagram.com/robinhoodtheatrecompany"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="IG"></a>
+    <a href="https://www.tiktok.com/@robinhoodtheatre"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046129.png" alt="TikTok"></a>
+    <a href="https://www.youtube.com/@robinhoodtheatrecompany3569"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+    <a href="https://x.com/rhtco"><img src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png" alt="X"></a>
+  </div>
+  <div class="rhtc-info">
+    Robin Hood Theatre Company Limited - Charity 1141240<br>
+    &copy; RHTC 2026
+  </div>
+</footer>
+
+<script>
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.onclick = () => menu.classList.toggle('active');
+
+const slider = document.getElementById('carousel');
+let autoPlay;
+const startRolling = () => {
+  autoPlay = setInterval(() => {
+    slider.scrollLeft += 1;
+    if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 1)) {
+      slider.scrollLeft = 0;
+    }
+  }, 25);
+};
+startRolling();
+</script>
+
+</body>
+</html>
